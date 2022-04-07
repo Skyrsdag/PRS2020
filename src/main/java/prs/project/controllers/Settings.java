@@ -11,10 +11,10 @@ import org.springframework.stereotype.Component;
 @Setter
 public class Settings {
 
-    private String wycena="CENA_ZMIENNA";
-    private String zamowienia="REZERWACJE";
-    private String zaopatrzenie="POJEDYNCZE";
-    private String wydarzenia="RAPORT_SPRZEDAŻY";
-    private Long numerIndeksu=Long.valueOf(461010);
-    private Long liczbaZadan=Long.valueOf(200);
+    private String wycena;
+    private String zamowienia;
+    private String zaopatrzenie;
+    private String wydarzenia;
+    private Long numerIndeksu;
+    private Long liczbaZadan;
 }

@@ -118,7 +118,7 @@ public class SequenceRunner {
             odpowiedz.setCena(akcja.getCena());
         }
 
-        if (WydarzeniaAkcje.RAPORT_SPRZEDAŻY.equals(akcja.getTyp())) {
+        if (WydarzeniaAkcje.RAPORT_SPRZEDAZY.equals(akcja.getTyp())) {
             odpowiedz.setRaportSprzedaży(sprzedaz);
         }
         if (WydarzeniaAkcje.INWENTARYZACJA.equals(akcja.getTyp())) {

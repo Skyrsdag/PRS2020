@@ -1,16 +1,5 @@
 package prs.project.checker;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.EnumMap;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,11 +8,13 @@ import org.springframework.stereotype.Service;
 import prs.project.model.Product;
 import prs.project.model.Warehouse;
 import prs.project.status.ReplyToAction;
-import prs.project.task.Akcja;
-import prs.project.task.SterowanieAkcja;
-import prs.project.task.WycenaAkcje;
-import prs.project.task.WydarzeniaAkcje;
-import prs.project.task.ZamowieniaAkcje;
+import prs.project.task.*;
+
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -81,7 +72,7 @@ public class Ledger {
                 .sorted(Comparator.comparing(ReplyToAction::getId)).collect(Collectors.toList());
         List<ReplyToAction> inwOdpowiedzi = pattern.stream().filter(m -> m.getTyp().equals(WydarzeniaAkcje.INWENTARYZACJA))
                 .sorted(Comparator.comparing(ReplyToAction::getId)).collect(Collectors.toList());
-        List<ReplyToAction> raportyOdpowiedzi = pattern.stream().filter(m -> m.getTyp().equals(WydarzeniaAkcje.RAPORT_SPRZEDAŻY))
+        List<ReplyToAction> raportyOdpowiedzi = pattern.stream().filter(m -> m.getTyp().equals(WydarzeniaAkcje.RAPORT_SPRZEDAZY))
                 .sorted(Comparator.comparing(ReplyToAction::getId)).collect(Collectors.toList());
 
         long czasStudent = Duration.between(logActions.get(indeks).get(0).getTimestamp(), logActions.get(indeks).get(logActions.get(indeks).size() - 1).getTimestamp())
@@ -104,7 +95,7 @@ public class Ledger {
         List<ReplyToAction> inwOdpowiedziStudent = logActions.get(indeks).stream().filter(m -> m.getTyp().equals(WydarzeniaAkcje.INWENTARYZACJA))
                 .sorted(Comparator.comparing(ReplyToAction::getId)).collect(Collectors.toList());
         List<ReplyToAction> raportyOdpowiedziStudent = logActions.get(indeks).stream()
-                .filter(m -> m.getTyp().equals(WydarzeniaAkcje.RAPORT_SPRZEDAŻY))
+                .filter(m -> m.getTyp().equals(WydarzeniaAkcje.RAPORT_SPRZEDAZY))
                 .sorted(Comparator.comparing(ReplyToAction::getId)).collect(Collectors.toList());
 
         assertThat(czasStudent).as("Twój program nie dziala krocej").isLessThan(czas);

@@ -151,7 +151,7 @@ public class Generator {
         Akcja action;
         switch (event) {
             case INWENTARYZACJA:
-            case RAPORT_SPRZEDAŻY:
+            case RAPORT_SPRZEDAZY:
                 action = Akcja.builder()
                         .typ(event)
                         .build();

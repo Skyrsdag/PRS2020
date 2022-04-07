@@ -11,7 +11,7 @@ public enum WydarzeniaAkcje {
     WYCOFANIE,
     PRZYWROCENIE,
     INWENTARYZACJA,
-    RAPORT_SPRZEDAŻY;
+    RAPORT_SPRZEDAZY;
 
     @JsonCreator
     public static WydarzeniaAkcje forValue(String value) {

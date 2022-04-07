@@ -12,7 +12,7 @@ public enum Wydarzenia {
 
     WYCOFANIE(Arrays.asList(WydarzeniaAkcje.WYCOFANIE, WydarzeniaAkcje.PRZYWROCENIE)),
     INWENTARYZACJA(Arrays.asList(WydarzeniaAkcje.INWENTARYZACJA)),
-    RAPORT_SPRZEDAŻY(Arrays.asList(WydarzeniaAkcje.RAPORT_SPRZEDAŻY));
+    RAPORT_SPRZEDAZY(Arrays.asList(WydarzeniaAkcje.RAPORT_SPRZEDAZY));
 
     Set<WydarzeniaAkcje> akceptowane;
 
